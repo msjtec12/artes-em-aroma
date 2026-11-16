@@ -22,9 +22,10 @@ function createDbInstance() {
     return drizzleNeon(sql, { schema });
   }
 
-  // Fallback embarcado PostgreSQL (PGlite persistente em disco ou memória para testes isolados)
+  // Fallback embarcado PostgreSQL (PGlite persistente em disco local ou /tmp/pglite em ambiente Serverless como Vercel)
   const isTest = process.env.NODE_ENV === "test" || process.env.VITEST === "true";
-  if (isTest) {
+  const isVercel = Boolean(process.env.VERCEL);
+  if (isTest || isVercel) {
     const client = new PGlite();
     return drizzlePglite(client, { schema });
   }
