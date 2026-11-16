@@ -81,6 +81,11 @@ export default async function HomePage() {
       />
 
       <Header />
+      {settings && !settings.isDataConfirmedForPublication && (
+        <div role="status" className="border-b border-dourado/30 bg-brancoQuente px-4 py-3 text-center text-sm text-marrom">
+          <strong>Catálogo em atualização:</strong> produtos e valores ilustrativos, sujeitos à confirmação da loja. Pedidos online ainda não estão liberados.
+        </div>
+      )}
 
       <main className="flex-1">
         {/* 1. HERO SECTION */}
