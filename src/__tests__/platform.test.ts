@@ -38,6 +38,8 @@ describe("Artes em Aroma — Suíte Completa dos 20 Fluxos Críticos (Prompt Mas
   let createdOrderCode: string;
 
   beforeAll(async () => {
+    process.env.ADMIN_INITIAL_PASSWORD = "TestOnlyStrongPassword123!";
+    process.env.AUTH_SECRET = "test-only-signing-key-not-for-production-123456";
     await ensureDatabaseInitialized();
   });
 
@@ -338,7 +340,7 @@ describe("Artes em Aroma — Suíte Completa dos 20 Fluxos Críticos (Prompt Mas
 
     const validAuth = await authenticateAdminCredentials(
       "admin@artesemaroma.com.br",
-      "ArtesAroma@2026"
+      "TestOnlyStrongPassword123!"
     );
     expect(validAuth.success).toBe(true);
     expect(validAuth.token).toBeDefined();
