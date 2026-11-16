@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { createServerValidatedOrder, markWhatsAppLinkTriggered } from "@/domain/orders";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { ZodError } from "zod";
+import { db, ensureDatabaseInitialized } from "@/db";
+import { storeSettings } from "@/db/schema";
 
 export async function POST(request: NextRequest) {
   try {
@@ -19,6 +21,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    await ensureDatabaseInitialized();
+    const [settings] = await db.select().from(storeSettings).limit(1);
+    if (!settings?.isDataConfirmedForPublication) {
+      return NextResponse.json(
+        { error: "A loja está em homologação. Catálogo, preços e estoque ainda precisam de confirmação pela administração." },
+        { status: 503 }
+      );
+    }
     const body = await request.json();
     const result = await createServerValidatedOrder(body);
 
