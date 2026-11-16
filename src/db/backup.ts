@@ -1,15 +1,9 @@
 import { db, ensureDatabaseInitialized } from "./index";
 import * as schema from "./schema";
-import fs from "fs";
-import path from "path";
 
-export async function createDatabaseBackup(): Promise<{ filePath: string; timestamp: string }> {
+export async function createDatabaseBackup() {
   await ensureDatabaseInitialized();
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-  const backupDir = path.join(process.cwd(), "backups");
-  if (!fs.existsSync(backupDir)) {
-    fs.mkdirSync(backupDir, { recursive: true });
-  }
 
   const payload = {
     createdAt: new Date().toISOString(),
@@ -28,15 +22,13 @@ export async function createDatabaseBackup(): Promise<{ filePath: string; timest
     seoMetadata: await db.select().from(schema.seoMetadata),
   };
 
-  const filePath = path.join(backupDir, `backup-artes-em-aroma-${timestamp}.json`);
-  fs.writeFileSync(filePath, JSON.stringify(payload, null, 2), "utf-8");
-  return { filePath, timestamp };
+  return { filename: `backup-artes-em-aroma-${timestamp}.json`, timestamp, payload };
 }
 
 if (require.main === module) {
   createDatabaseBackup()
     .then((res) => {
-      console.log(`Backup concluído em: ${res.filePath}`);
+      console.log(`Backup pronto para download: ${res.filename}`);
       process.exit(0);
     })
     .catch((err) => {
