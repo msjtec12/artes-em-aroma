@@ -30,11 +30,14 @@ npm run dev
 npm run build
 ```
 
-## 3. Credenciais Administrativas Iniciais
+## 3. Acesso administrativo e segurança
 
-- **URL do Painel:** `/admin` (ou `/admin/login`)
-- **E-mail:** `admin@artesemaroma.com.br`
-- **Senha:** `ArtesAroma@2026`
+- URL: `/admin/login`.
+- E-mail de bootstrap: `ADMIN_INITIAL_EMAIL` (padrão: `admin@artesemaroma.com.br`).
+- Senha inicial: **somente por variável de ambiente secreta** `ADMIN_INITIAL_PASSWORD` (mínimo 16 caracteres). Nunca publique credenciais no GitHub.
+- A assinatura de sessões exige `AUTH_SECRET` (32 caracteres ou mais).
+- Na Vercel é obrigatório configurar `DATABASE_URL` com PostgreSQL persistente. O PGlite é exclusivo para desenvolvimento/testes.
+- Remova `ADMIN_INITIAL_PASSWORD` do ambiente após a primeira inicialização, e implemente uma rotina de troca de senha para uso contínuo.
 
 ## 4. Backup e Restauração
 
