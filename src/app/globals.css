@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --color-creme: #F7F1E9;
-  --color-salvia: #A6AD89;
-  --color-oliva: #656C4A;
-  --color-dourado: #B59A73;
-  --color-marrom: #3D332B;
-  --color-branco-quente: #FFFCF8;
+  --color-creme: #F5EFE3;
+  --color-salvia: #8B9270;
+  --color-oliva: #697151;
+  --color-dourado: #9E8458;
+  --color-marrom: #563822;
+  --color-branco-quente: #FAF7F0;
 }
 
 body {
@@ -19,6 +19,6 @@ body {
 }
 
 ::selection {
-  background-color: #A6AD89;
-  color: #3D332B;
+  background-color: #8B9270;
+  color: #FAF7F0;
 }

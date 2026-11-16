@@ -9,11 +9,22 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Coluna 1: Identidade */}
           <div className="space-y-4">
-            <img
-              src="/images/logo-artes-em-aroma.svg"
-              alt="Loja Artes em Aroma"
-              className="h-12 w-auto"
-            />
+            <div className="flex items-center gap-3.5">
+              <img
+                src="/images/logo-artes-em-aroma.jpg"
+                alt="Loja Artes em Aroma — Matéria Prima para Sabonetes e Velas"
+                className="h-16 w-16 rounded-full border border-dourado/40 object-cover shadow-xs"
+              />
+              <div>
+                <span className="block font-serif text-xl font-bold text-marrom">
+                  Artes <span className="font-script font-normal text-dourado">em</span>{" "}
+                  <span className="text-oliva">Aroma</span>
+                </span>
+                <span className="text-[10px] font-semibold tracking-wider text-marrom/75 uppercase">
+                  Sabonetes &amp; Velas
+                </span>
+              </div>
+            </div>
             <p className="text-sm leading-relaxed text-marrom/80">
               Um espaço em Suzano/SP para quem deseja transformar criatividade em produtos aromáticos, oferecendo variedade de essências, bases, ceras e atendimento próximo.
             </p>

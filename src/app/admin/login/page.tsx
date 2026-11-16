@@ -43,9 +43,9 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md rounded-3xl border border-dourado/35 bg-brancoQuente p-8 shadow-lg">
         <div className="text-center">
           <img
-            src="/images/logo-artes-em-aroma.svg"
+            src="/images/logo-artes-em-aroma.jpg"
             alt="Artes em Aroma"
-            className="mx-auto h-12 w-auto"
+            className="mx-auto h-20 w-20 rounded-full border border-dourado/40 object-cover shadow-xs"
           />
           <h1 className="mt-4 font-serif text-2xl font-semibold text-marrom">
             Painel Administrativo

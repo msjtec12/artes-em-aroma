@@ -34,7 +34,15 @@ export const metadata: Metadata = {
     template: "%s | Artes em Aroma",
   },
   description:
-    "Transforme ideias em aromas. Essências, bases glicerinadas, ceras para velas e matérias-primas para fabricação artesanal em Suzano, São Paulo.",
+    "Transforme ideias em aromas. Matéria-prima para sabonetes e velas, essências, bases glicerinadas e ceras vegetais em Suzano, São Paulo.",
+  icons: {
+    icon: [
+      { url: "/favicon.jpg", type: "image/jpeg" },
+      { url: "/images/logo-artes-em-aroma.jpg", type: "image/jpeg" },
+    ],
+    shortcut: "/favicon.jpg",
+    apple: "/images/logo-artes-em-aroma.jpg",
+  },
   alternates: {
     canonical: "/",
   },
@@ -43,15 +51,15 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: SITE_URL,
     siteName: "Loja Artes em Aroma",
-    title: "Artes em Aroma | Essências, Ceras e Saboaria Artesanal em Suzano - SP",
+    title: "Artes em Aroma | Matéria-Prima para Sabonetes e Velas em Suzano - SP",
     description:
       "Essências, bases, ceras e matérias-primas para dar vida às suas criações de velas aromáticas, sabonetes e perfumaria artesanal em Suzano/SP.",
     images: [
       {
-        url: "/images/hero-botanical-composition.svg",
+        url: "/images/logo-artes-em-aroma.jpg",
         width: 800,
-        height: 620,
-        alt: "Loja Artes em Aroma — Insumos para Perfumaria, Velas e Saboaria Artesanal",
+        height: 800,
+        alt: "Logo Oficial Loja Artes em Aroma — Matéria Prima para Sabonetes e Velas",
       },
     ],
   },

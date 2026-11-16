@@ -53,12 +53,21 @@ export function Header() {
       {/* Barra principal */}
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8">
         {/* Logo original */}
-        <Link href="/" className="flex items-center gap-3" aria-label="Artes em Aroma - Início">
+        <Link href="/" className="flex items-center gap-3.5 group" aria-label="Artes em Aroma - Início">
           <img
-            src="/images/logo-artes-em-aroma.svg"
-            alt="Logo Loja Artes em Aroma Suzano"
-            className="h-11 w-auto sm:h-12"
+            src="/images/logo-artes-em-aroma.jpg"
+            alt="Logo Loja Artes em Aroma — Matéria Prima para Sabonetes e Velas"
+            className="h-14 w-14 rounded-full border border-dourado/40 object-cover shadow-xs transition group-hover:scale-105 sm:h-16 sm:w-16"
           />
+          <div className="flex flex-col">
+            <span className="font-serif text-xl leading-none font-bold text-marrom sm:text-2xl">
+              Artes <span className="font-script font-normal text-dourado">em</span>{" "}
+              <span className="text-oliva">Aroma</span>
+            </span>
+            <span className="mt-1 text-[10px] font-semibold tracking-widest text-marrom/75 uppercase">
+              Matéria-Prima para Sabonetes e Velas
+            </span>
+          </div>
         </Link>
 
         {/* Navegação Desktop */}

@@ -21,7 +21,7 @@ export function buildOrganizationAndLocalBusinessJsonLd(settings: {
         "@id": `${SITE_URL}/#organization`,
         name: settings.storeName,
         url: SITE_URL,
-        logo: `${SITE_URL}/images/logo-artes-em-aroma.svg`,
+        logo: `${SITE_URL}/images/logo-artes-em-aroma.jpg`,
         description: settings.tagline,
         sameAs: [settings.instagramUrl],
         contactPoint: {

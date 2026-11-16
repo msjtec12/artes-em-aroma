@@ -509,13 +509,18 @@ export function AdminDashboardClient({
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <img
-              src="/images/logo-artes-em-aroma.svg"
+              src="/images/logo-artes-em-aroma.jpg"
               alt="Artes em Aroma"
-              className="h-10 w-auto"
+              className="h-11 w-11 rounded-full border border-dourado/40 object-cover"
             />
-            <span className="rounded-full bg-oliva/15 px-3 py-0.5 text-xs font-semibold text-oliva">
-              Gestão Comercial &amp; SEO
-            </span>
+            <div>
+              <span className="block font-serif text-lg leading-none font-bold text-marrom">
+                Artes em Aroma
+              </span>
+              <span className="text-[11px] font-semibold text-oliva">
+                Gestão Comercial &amp; SEO
+              </span>
+            </div>
           </div>
 
           <div className="flex items-center gap-3 text-xs">
