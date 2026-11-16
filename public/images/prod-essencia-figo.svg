@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none">
+  <rect width="500" height="500" rx="20" fill="#F7F1E9"/>
+  <rect x="215" y="95" width="70" height="35" rx="5" fill="#3D332B"/>
+  <path d="M180 165C180 142 200 130 220 130H280C300 130 320 142 320 165V380C320 398 306 410 288 410H212C194 410 180 398 180 380V165Z" fill="#5E3719"/>
+  <rect x="196" y="205" width="108" height="140" rx="8" fill="#FFFCF8" stroke="#B59A73" stroke-width="1.5"/>
+  <text x="250" y="248" text-anchor="middle" font-family="Georgia, serif" font-size="15" font-weight="bold" fill="#3D332B">Flor de Figo</text>
+  <text x="250" y="268" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#656C4A">&amp; Âmbar</text>
+  <text x="250" y="304" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#3D332B">EDIÇÃO BOTÂNICA • 100 ML</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 90" fill="none">
+  <rect width="360" height="90" rx="12" fill="#FFFCF8"/>
+  <g transform="translate(18, 15)">
+    <circle cx="30" cy="30" r="28" fill="#F7F1E9" stroke="#B59A73" stroke-width="1.5"/>
+    <path d="M30 12C22 20 18 28 22 38C25 45 35 45 38 38C42 28 38 20 30 12Z" fill="#656C4A" fill-opacity="0.18" stroke="#656C4A" stroke-width="1.8"/>
+    <path d="M30 16V46" stroke="#3D332B" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M30 28C25 25 22 26 20 28" stroke="#656C4A" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M30 34C35 31 38 32 40 34" stroke="#656C4A" stroke-width="1.4" stroke-linecap="round"/>
+  </g>
+  <text x="90" y="44" font-family="Georgia, serif" font-size="26" font-weight="600" fill="#3D332B" letter-spacing="0.04em">Artes em Aroma</text>
+  <text x="92" y="64" font-family="sans-serif" font-size="10.5" font-weight="500" fill="#656C4A" letter-spacing="0.22em">ESSÊNCIAS &amp; CRIAÇÃO ARTESANAL</text>
+</svg>

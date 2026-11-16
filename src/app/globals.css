@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-creme: #F7F1E9;
+  --color-salvia: #A6AD89;
+  --color-oliva: #656C4A;
+  --color-dourado: #B59A73;
+  --color-marrom: #3D332B;
+  --color-branco-quente: #FFFCF8;
+}
+
+body {
+  background-color: var(--color-branco-quente);
+  color: var(--color-marrom);
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: #A6AD89;
+  color: #3D332B;
+}

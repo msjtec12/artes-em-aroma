@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none">
+  <rect width="500" height="500" rx="20" fill="#F7F1E9"/>
+  <g stroke="#3D332B" stroke-width="3" stroke-linecap="round">
+    <line x1="180" y1="120" x2="180" y2="350"/>
+    <line x1="225" y1="120" x2="225" y2="350"/>
+    <line x1="270" y1="120" x2="270" y2="350"/>
+    <line x1="315" y1="120" x2="315" y2="350"/>
+  </g>
+  <ellipse cx="180" cy="355" rx="18" ry="8" fill="#B59A73"/>
+  <ellipse cx="225" cy="355" rx="18" ry="8" fill="#B59A73"/>
+  <ellipse cx="270" cy="355" rx="18" ry="8" fill="#B59A73"/>
+  <ellipse cx="315" cy="355" rx="18" ry="8" fill="#B59A73"/>
+  <rect x="140" y="380" width="220" height="55" rx="8" fill="#FFFCF8" stroke="#B59A73"/>
+  <text x="250" y="413" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#3D332B">Pavios de Algodão c/ Ilhós</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" fill="none">
+  <rect width="800" height="620" rx="28" fill="#F7F1E9"/>
+  <circle cx="620" cy="140" r="190" fill="#A6AD89" fill-opacity="0.22"/>
+  <circle cx="170" cy="490" r="210" fill="#B59A73" fill-opacity="0.15"/>
+  <!-- Bandeja de pedra artesanal -->
+  <ellipse cx="400" cy="500" rx="290" ry="44" fill="#E8DEC8"/>
+  <ellipse cx="400" cy="492" rx="280" ry="38" fill="#FFFCF8" stroke="#B59A73" stroke-width="1.5"/>
+  <!-- Frasco Âmbar Grande (Essência) -->
+  <g transform="translate(230, 175)">
+    <rect x="38" y="0" width="44" height="26" rx="4" fill="#3D332B"/>
+    <rect x="44" y="26" width="32" height="18" fill="#8C5828"/>
+    <path d="M16 70C16 52 30 44 44 44H76C90 44 104 52 104 70V285C104 298 94 308 80 308H40C26 308 16 298 16 285V70Z" fill="#7C471E"/>
+    <path d="M24 72C24 58 34 50 46 50H54V300H42C30 300 24 292 24 280V72Z" fill="#9E5E2B" fill-opacity="0.55"/>
+    <!-- Rótulo Botânico -->
+    <rect x="24" y="110" width="72" height="130" rx="6" fill="#FFFCF8" stroke="#B59A73" stroke-width="1.5"/>
+    <text x="60" y="145" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#3D332B" font-weight="bold">ARTES EM</text>
+    <text x="60" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#3D332B" font-weight="bold">AROMA</text>
+    <line x1="38" y1="172" x2="82" y2="172" stroke="#B59A73" stroke-width="1"/>
+    <text x="60" y="192" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#656C4A">ESSÊNCIA</text>
+    <text x="60" y="206" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#3D332B">Botânica Pura</text>
+    <text x="60" y="226" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#8C7A6B">100 ml</text>
+  </g>
+  <!-- Vela Vegetal em Pote de Vidro -->
+  <g transform="translate(385, 285)">
+    <rect x="10" y="40" width="130" height="155" rx="14" fill="#FFFCF8" stroke="#B59A73" stroke-width="2"/>
+    <rect x="16" y="68" width="118" height="120" rx="10" fill="#F4EDE1"/>
+    <!-- Pavio e chama suave -->
+    <line x1="75" y1="50" x2="75" y2="68" stroke="#3D332B" stroke-width="2.5"/>
+    <path d="M75 22C68 32 69 44 75 48C81 44 82 32 75 22Z" fill="#D99B4E"/>
+    <rect x="30" y="102" width="90" height="54" rx="4" fill="#FFFCF8" stroke="#A6AD89" stroke-width="1.2"/>
+    <text x="75" y="126" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#3D332B">Cera Vegetal</text>
+    <text x="75" y="142" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#656C4A">COCO &amp; SOJA</text>
+  </g>
+  <!-- Barras de Sabonete Glicerinado Artesanal -->
+  <g transform="translate(535, 370)">
+    <rect x="0" y="55" width="115" height="52" rx="10" fill="#EDE3D2" stroke="#B59A73" stroke-width="1.5"/>
+    <rect x="12" y="12" width="110" height="50" rx="10" fill="#A6AD89" stroke="#656C4A" stroke-width="1.5"/>
+    <text x="67" y="41" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFCF8">Saboaria Vegetal</text>
+  </g>
+  <!-- Ramos Botânicos -->
+  <path d="M180 460C150 390 160 310 205 250" stroke="#656C4A" stroke-width="2.5" stroke-linecap="round"/>
+  <ellipse cx="172" cy="340" rx="18" ry="8" transform="rotate(-30 172 340)" fill="#656C4A"/>
+  <ellipse cx="192" cy="300" rx="18" ry="8" transform="rotate(25 192 300)" fill="#A6AD89"/>
+  <ellipse cx="168" cy="280" rx="16" ry="7" transform="rotate(-20 168 280)" fill="#656C4A"/>
+</svg>
