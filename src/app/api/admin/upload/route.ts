@@ -8,7 +8,6 @@ const ALLOWED_MIME_TYPES = new Set([
   "image/png",
   "image/webp",
   "image/avif",
-  "image/svg+xml",
 ]);
 
 const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5 MB
@@ -16,6 +15,12 @@ const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5 MB
 export async function POST(request: NextRequest) {
   try {
     await requireAdminSession();
+    if (process.env.VERCEL || process.env.NODE_ENV === "production") {
+      return NextResponse.json(
+        { error: "Upload desabilitado até configurar armazenamento permanente (Vercel Blob, S3 ou R2). Utilize URL externa HTTPS para imagens enquanto isso." },
+        { status: 503 }
+      );
+    }
     const formData = await request.formData();
     const file = formData.get("file") as File | null;
 
@@ -30,7 +35,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error:
-            "Formato de arquivo não permitido. Envie imagens JPG, PNG, WebP, AVIF ou SVG.",
+            "Formato de arquivo não permitido. Envie imagens JPG, PNG, WebP ou AVIF.",
         },
         { status: 400 }
       );
