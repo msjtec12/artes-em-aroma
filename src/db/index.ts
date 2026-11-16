@@ -711,13 +711,14 @@ export async function seedInitialData() {
   ]);
 
   // 7. SEO Metadata para rotas estáticas
+  const canonicalSiteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://artes-em-aroma-jet.vercel.app").replace(/\/$/, "");
   await db.insert(schema.seoMetadata).values([
     {
       routePath: "/",
       title: "Artes em Aroma | Loja de Essências, Ceras e Saboaria Artesanal em Suzano - SP",
       description:
         "Transforme ideias em aromas. Essências, base glicerinada, cera para velas, frascos e matérias-primas para perfumaria artesanal em Suzano/SP.",
-      canonicalUrl: "https://artesemaroma.com.br/",
+      canonicalUrl: `${canonicalSiteUrl}/`,
       noIndex: false,
     },
     {
@@ -725,7 +726,7 @@ export async function seedInitialData() {
       title: "Catálogo de Essências, Ceras para Velas e Bases em Suzano | Artes em Aroma",
       description:
         "Explore nosso catálogo de essências aromáticas, cera vegetal de coco, base glicerinada para sabonetes, pavios e frascos em Suzano/SP.",
-      canonicalUrl: "https://artesemaroma.com.br/produtos",
+      canonicalUrl: `${canonicalSiteUrl}/produtos`,
       noIndex: false,
     },
     {
@@ -733,7 +734,7 @@ export async function seedInitialData() {
       title: "Guias de Criação Artesanal: Velas, Sabonetes e Aromatizadores | Artes em Aroma",
       description:
         "Aprenda como escolher essências para velas, diferenças entre famílias olfativas, tipos de ceras e materiais básicos para sabonetes artesanais.",
-      canonicalUrl: "https://artesemaroma.com.br/guias",
+      canonicalUrl: `${canonicalSiteUrl}/guias`,
       noIndex: false,
     },
     {
@@ -741,7 +742,7 @@ export async function seedInitialData() {
       title: "Sobre a Loja Artes em Aroma | Perfumaria e Saboaria Artesanal em Suzano",
       description:
         "Conheça a Artes em Aroma em Suzano/SP: um espaço dedicado a quem deseja transformar criatividade em velas aromáticas, sabonetes e perfumes.",
-      canonicalUrl: "https://artesemaroma.com.br/sobre",
+      canonicalUrl: `${canonicalSiteUrl}/sobre`,
       noIndex: false,
     },
     {
@@ -749,7 +750,7 @@ export async function seedInitialData() {
       title: "Dúvidas Frequentes sobre Essências, Velas e Pedidos | Artes em Aroma Suzano",
       description:
         "Respostas diretas sobre onde comprar essências em Suzano, materiais para velas e sabonetes, como solicitar pedidos pelo WhatsApp e retirada na loja.",
-      canonicalUrl: "https://artesemaroma.com.br/duvidas",
+      canonicalUrl: `${canonicalSiteUrl}/duvidas`,
       noIndex: false,
     },
     {
@@ -757,7 +758,7 @@ export async function seedInitialData() {
       title: "Localização e Contato em Suzano/SP | Loja Artes em Aroma",
       description:
         "Visite a Loja Artes em Aroma na Rua Rui Barbosa, 310, Vila Costa, Suzano/SP. Confira telefone, WhatsApp, horários e mapa de localização.",
-      canonicalUrl: "https://artesemaroma.com.br/contato",
+      canonicalUrl: `${canonicalSiteUrl}/contato`,
       noIndex: false,
     },
   ]);
