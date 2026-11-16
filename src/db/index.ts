@@ -14,21 +14,21 @@ const globalForDb = globalThis as unknown as {
 };
 
 function createDbInstance() {
-  const databaseUrl = process.env.DATABASE_URL?.trim();
+  // Ambiente de testes SEMPRE usa banco isolado, independentemente de DATABASE_URL.
+  // Impede que uma suíte automatizada modifique os dados reais da loja.
+  const isTest = process.env.NODE_ENV === "test" || process.env.VITEST === "true";
+  if (isTest) {
+    const client = new PGlite();
+    return drizzlePglite(client, { schema });
+  }
 
-  // Se houver uma URL real do Neon PostgreSQL configurada, usa o driver oficial @neondatabase/serverless
+  const databaseUrl = process.env.DATABASE_URL?.trim();
   if (databaseUrl && (databaseUrl.startsWith("postgres://") || databaseUrl.startsWith("postgresql://"))) {
     const sql = neon(databaseUrl);
     return drizzleNeon(sql, { schema });
   }
 
-  // Fallback embarcado PostgreSQL (PGlite persistente em disco local ou /tmp/pglite em ambiente Serverless como Vercel)
-  const isTest = process.env.NODE_ENV === "test" || process.env.VITEST === "true";
   const isVercel = Boolean(process.env.VERCEL);
-  if (isTest) {
-    const client = new PGlite();
-    return drizzlePglite(client, { schema });
-  }
 
   if (isVercel || process.env.NODE_ENV === "production") {
     throw new Error("DATABASE_URL deve apontar para um PostgreSQL persistente em produção (ex.: Neon).");
