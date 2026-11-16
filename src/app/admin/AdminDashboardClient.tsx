@@ -455,8 +455,19 @@ export function AdminDashboardClient({
       body: JSON.stringify({ type: "backup" }),
     });
     const data = await res.json();
-    if (res.ok) {
-      showToast(`Backup gerado com sucesso (${data.backup?.timestamp})!`);
+    if (res.ok && data.backup?.payload) {
+      const blob = new Blob([JSON.stringify(data.backup.payload, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = data.backup.filename || "backup-artes-em-aroma.json";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      showToast(`Backup baixado com sucesso (${data.backup?.timestamp})!`);
+    } else {
+      showToast(data.error || "Não foi possível baixar o backup.");
     }
   };
 
