@@ -25,9 +25,13 @@ function createDbInstance() {
   // Fallback embarcado PostgreSQL (PGlite persistente em disco local ou /tmp/pglite em ambiente Serverless como Vercel)
   const isTest = process.env.NODE_ENV === "test" || process.env.VITEST === "true";
   const isVercel = Boolean(process.env.VERCEL);
-  if (isTest || isVercel) {
+  if (isTest) {
     const client = new PGlite();
     return drizzlePglite(client, { schema });
+  }
+
+  if (isVercel || process.env.NODE_ENV === "production") {
+    throw new Error("DATABASE_URL deve apontar para um PostgreSQL persistente em produção (ex.: Neon).");
   }
 
   const dataDir = path.join(process.cwd(), "data", "pglite");
@@ -101,18 +105,26 @@ export async function seedInitialData() {
     .onConflictDoNothing()
     .returning();
 
-  const passwordHash = await bcrypt.hash("ArtesAroma@2026", 10);
-  await db
-    .insert(schema.users)
-    .values({
-      name: "Administração Artes em Aroma",
-      email: "admin@artesemaroma.com.br",
-      passwordHash,
-      roleId: adminRole?.id ?? 1,
-      roleName: "admin",
-      isActive: true,
-    })
-    .onConflictDoNothing();
+  // Nunca criar uma conta administrativa com senha previsível.
+  // Configure ADMIN_INITIAL_PASSWORD (mínimo 16 caracteres) no ambiente seguro.
+  const initialPassword = process.env.ADMIN_INITIAL_PASSWORD?.trim();
+  if (initialPassword) {
+    if (initialPassword.length < 16) {
+      throw new Error("ADMIN_INITIAL_PASSWORD precisa ter pelo menos 16 caracteres.");
+    }
+    const passwordHash = await bcrypt.hash(initialPassword, 12);
+    await db
+      .insert(schema.users)
+      .values({
+        name: "Administração Artes em Aroma",
+        email: (process.env.ADMIN_INITIAL_EMAIL || "admin@artesemaroma.com.br").toLowerCase(),
+        passwordHash,
+        roleId: adminRole?.id ?? 1,
+        roleName: "admin",
+        isActive: true,
+      })
+      .onConflictDoNothing();
+  }
 
   // 2. Store Settings (Informações da seção 2 do Prompt Master)
   await db.insert(schema.storeSettings).values({
