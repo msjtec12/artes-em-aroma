@@ -546,6 +546,10 @@ export function AdminDashboardClient({
               Ver Vitrine Pública
               <ExternalLink className="h-3.5 w-3.5" />
             </Link>
+            <Link href="/admin/seguranca"
+              className="inline-flex items-center gap-1 rounded-xl border border-dourado/40 px-3 py-2 font-medium text-oliva hover:bg-creme">
+              Alterar senha
+            </Link>
             <button
               type="button"
               onClick={handleLogout}
