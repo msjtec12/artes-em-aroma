@@ -42,7 +42,19 @@ function createDbInstance() {
   return drizzlePglite(client, { schema });
 }
 
-export const db = (globalForDb.dbInstance ??= createDbInstance());
+type DbInstance = NonNullable<typeof globalForDb.dbInstance>;
+
+// O Next.js importa módulos de rotas durante "Collecting page data".
+// Não conectar ao banco durante o import: resolver apenas na primeira query.
+// A falta de DATABASE_URL continua sendo erro em runtime de produção,
+// mas não impede a compilação de rotas que ainda não usaram o banco.
+export const db: DbInstance = new Proxy({} as DbInstance, {
+  get(_target, property) {
+    const instance = (globalForDb.dbInstance ??= createDbInstance());
+    const value = Reflect.get(instance, property, instance);
+    return typeof value === "function" ? value.bind(instance) : value;
+  },
+});
 
 /**
  * Inicializa o schema e dados base (seed idempotente) caso o banco ainda esteja vazio.
