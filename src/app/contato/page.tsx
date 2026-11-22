@@ -20,7 +20,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.konnexy.com.br";
+const SITE_URL = "https://artesemaroma.konnexy.com.br";
 
 export const dynamic = "force-dynamic";
 
