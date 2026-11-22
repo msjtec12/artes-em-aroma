@@ -10,7 +10,7 @@ import {
 
 function escapeCsvFormula(value: string): string {
   // Protect spreadsheet users from formula evaluation of customer-controlled text.
-  return /^[\\s]*[=+@-]/.test(value) ? "'" + value : value;
+  return /^\s*[=+@-]/.test(value) ? "'" + value : value;
 }
 
 export async function GET(request: NextRequest) {
