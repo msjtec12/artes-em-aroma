@@ -112,6 +112,7 @@ export default async function HomePage() {
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a href="https://wa.me/5511910771820?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20os%20materiais%20dispon%C3%ADveis%20para%20artesanato." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-oliva px-7 py-4 text-sm font-semibold text-brancoQuente hover:bg-marrom">Consultar produtos no WhatsApp</a>
                 <Link
                   href={heroContent?.ctaPrimaryHref || "/produtos"}
                   className="inline-flex items-center gap-2 rounded-xl bg-oliva px-7 py-4 text-sm font-semibold text-brancoQuente shadow-sm transition hover:bg-marrom"
@@ -505,6 +506,14 @@ export default async function HomePage() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="encomendas-titulo" className="bg-creme py-14 sm:py-20">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <h2 id="encomendas-titulo" className="font-serif text-3xl font-semibold text-marrom">Encomendas de produtos artesanais</h2>
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-marrom/85">A Loja Artes em Aroma recebe consultas para encomendas de sabonetes, lembrancinhas, aromatizadores, velas e perfumes artesanais. Modelos, valores, prazos e disponibilidade são confirmados diretamente com a loja. Consulte também as opções disponíveis para pronta entrega.</p>
+            <a href="https://wa.me/5511910771820?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20encomendas%20de%20produtos%20artesanais." target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex rounded-xl bg-oliva px-6 py-3 font-semibold text-brancoQuente hover:bg-marrom">Consultar encomenda pelo WhatsApp</a>
           </div>
         </section>
 
