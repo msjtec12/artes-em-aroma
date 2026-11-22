@@ -583,7 +583,6 @@ export default async function HomePage() {
                   </a>
                   <a
                     href={
-                      settings?.instagramUrl ||
                       "https://www.instagram.com/lojaartesemaroma/"
                     }
                     target="_blank"
