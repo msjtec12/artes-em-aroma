@@ -1,12 +1,16 @@
 import type { MetadataRoute } from "next";
 import { getAllCatalogProducts } from "@/domain/products";
 import { EDITORIAL_GUIDES } from "@/domain/guides";
+import { db, ensureDatabaseInitialized } from "@/db";
+import { storeSettings } from "@/db/schema";
 
 const SITE_URL = "https://artesemaroma.konnexy.com.br";
 
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  await ensureDatabaseInitialized();
+  const [settings] = await db.select().from(storeSettings).limit(1);
   const { items: activeProducts } = await getAllCatalogProducts({
     includeInactive: false,
     pageSize: 1000,
@@ -52,7 +56,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   // Somente produtos ativos e não deletados entram no sitemap
-  const productRoutes: MetadataRoute.Sitemap = activeProducts.map((p) => ({
+  const productRoutes: MetadataRoute.Sitemap = (settings?.isDataConfirmedForPublication ? activeProducts : []).map((p) => ({
     url: `${SITE_URL}/produtos/${p.slug}`,
     lastModified: new Date(p.updatedAt),
     changeFrequency: "weekly",
