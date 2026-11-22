@@ -147,7 +147,6 @@ export default async function ContactPage() {
                     <Instagram className="h-4 w-4 shrink-0 text-oliva" />
                     <a
                       href={
-                        settings?.instagramUrl ||
                         "https://www.instagram.com/lojaartesemaroma/"
                       }
                       target="_blank"
