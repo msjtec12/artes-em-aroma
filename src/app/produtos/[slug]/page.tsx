@@ -16,6 +16,8 @@ import {
   buildFaqPageJsonLd,
 } from "@/domain/jsonld";
 import { ShieldAlert, Sparkles, CheckCircle, Layers } from "lucide-react";
+import { db, ensureDatabaseInitialized } from "@/db";
+import { storeSettings } from "@/db/schema";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.konnexy.com.br";
 
@@ -40,8 +42,9 @@ export async function generateMetadata({
     };
   }
 
-  const canonical =
-    product.canonicalUrl || `${SITE_URL}/produtos/${product.slug}`;
+  await ensureDatabaseInitialized();
+  const [store] = await db.select().from(storeSettings).limit(1);
+  const canonical = `${SITE_URL}/produtos/${product.slug}`;
   const title =
     product.seoTitle || `${product.name} (${product.volumeOrWeight}) em Suzano`;
   const description =
@@ -50,6 +53,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    robots: store?.isDataConfirmedForPublication ? { index: true, follow: true } : { index: false, follow: true },
     alternates: {
       canonical,
     },
@@ -99,7 +103,9 @@ export default async function ProductDetailPage({
     )
     .slice(0, 4);
 
-  const productJsonLd = buildProductJsonLd(product);
+  await ensureDatabaseInitialized();
+  const [store] = await db.select().from(storeSettings).limit(1);
+  const productJsonLd = store?.isDataConfirmedForPublication ? buildProductJsonLd(product) : null;
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "Início", path: "/" },
     { name: "Produtos", path: "/produtos" },
@@ -116,10 +122,7 @@ export default async function ProductDetailPage({
 
   return (
     <div className="flex min-h-screen flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
-      />
+      {productJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
