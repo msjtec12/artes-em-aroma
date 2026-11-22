@@ -98,7 +98,7 @@ export default async function HomePage() {
               </div>
 
               <h1 className="font-serif text-4xl leading-tight font-semibold text-marrom sm:text-5xl lg:text-6xl">
-                {heroContent?.title || "Transforme ideias em aromas."}
+                Essências e materiais para velas e sabonetes artesanais em Suzano
               </h1>
 
               <p className="text-lg leading-relaxed text-marrom/85 sm:text-xl">
@@ -545,8 +545,7 @@ export default async function HomePage() {
                         Horário de Atendimento
                       </div>
                       <p className="mt-1 text-xs leading-relaxed text-marrom/80">
-                        {settings?.openingHours ||
-                          "Segunda a Sexta: 09h às 18h | Sábado: 09h às 13h"}
+                        {"Segunda a sexta: 9h às 18h30 | Sábado: consulte o horário de funcionamento | Domingo: fechado"}
                       </p>
                     </div>
                   </div>
@@ -576,14 +575,14 @@ export default async function HomePage() {
                   <a
                     href={
                       settings?.instagramUrl ||
-                      "https://www.instagram.com/lojartesemaroma/"
+                      "https://www.instagram.com/lojaartesemaroma/"
                     }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-xl border border-dourado/40 px-5 py-3 text-xs font-semibold text-marrom hover:bg-creme"
                   >
                     <Instagram className="h-4 w-4 text-oliva" />
-                    Seguir @lojartesemaroma no Instagram
+                    Seguir @lojaartesemaroma no Instagram
                   </a>
                   <Link
                     href="/produtos"
