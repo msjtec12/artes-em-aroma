@@ -1,3 +1,4 @@
+import { SignJWT, jwtVerify } from "jose";
 import { z } from "zod";
 import { db, ensureDatabaseInitialized } from "@/db";
 import {
@@ -31,6 +32,28 @@ export {
   buildWhatsAppOrderMessage,
 };
 export type { CommercialStatus, CommunicationStatus };
+
+
+function getOrderActionSecret(): Uint8Array {
+  const secret = process.env.AUTH_SECRET?.trim();
+  if (!secret || secret.length < 32) throw new Error("AUTH_SECRET ausente ou curto.");
+  return new TextEncoder().encode(secret);
+}
+
+async function createOrderActionToken(orderCode: string): Promise<string> {
+  return new SignJWT({ scope: "whatsapp_click", orderCode })
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt()
+    .setExpirationTime("24h")
+    .sign(getOrderActionSecret());
+}
+
+export async function verifyOrderActionToken(orderCode: string, token: string): Promise<boolean> {
+  try {
+    const { payload } = await jwtVerify(token, getOrderActionSecret());
+    return payload.scope === "whatsapp_click" && payload.orderCode === orderCode;
+  } catch { return false; }
+}
 
 export const CreateOrderInputSchema = z.object({
   customerName: z
@@ -68,6 +91,7 @@ export interface OrderCreationResult {
   communicationStatus: CommunicationStatus;
   whatsappUrl: string;
   whatsappMessage: string;
+  actionToken: string;
   isDuplicateIdempotent: boolean;
   items: Array<{
     productName: string;
@@ -132,6 +156,7 @@ export async function createServerValidatedOrder(
         communicationStatus: existingOrder.communicationStatus as CommunicationStatus,
         whatsappUrl: `https://wa.me/${waPhone}?text=${encodeURIComponent(message)}`,
         whatsappMessage: message,
+        actionToken: await createOrderActionToken(existingOrder.orderCode),
         isDuplicateIdempotent: true,
         items: mappedItems,
       };
@@ -337,6 +362,7 @@ export async function createServerValidatedOrder(
     communicationStatus: "link_gerado",
     whatsappUrl,
     whatsappMessage,
+    actionToken: await createOrderActionToken(orderCode),
     isDuplicateIdempotent: false,
     items: validatedSnapshots.map((s) => ({
       productName: s.productName,

@@ -1,6 +1,6 @@
 import { ProductWithRelations } from "./products";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.com.br";
+const SITE_URL = "https://artesemaroma.konnexy.com.br";
 
 export function buildOrganizationAndLocalBusinessJsonLd(settings: {
   storeName: string;
@@ -23,7 +23,7 @@ export function buildOrganizationAndLocalBusinessJsonLd(settings: {
         url: SITE_URL,
         logo: `${SITE_URL}/images/logo-artes-em-aroma.jpg`,
         description: settings.tagline,
-        sameAs: [settings.instagramUrl],
+        sameAs: ["https://www.instagram.com/lojaartesemaroma/"],
         contactPoint: {
           "@type": "ContactPoint",
           telephone: settings.publicPhone,
@@ -48,11 +48,13 @@ export function buildOrganizationAndLocalBusinessJsonLd(settings: {
           postalCode: settings.addressZip,
           addressCountry: "BR",
         },
-        areaServed: {
-          "@type": "City",
-          name: "Suzano",
-        },
-        sameAs: [settings.instagramUrl],
+        openingHoursSpecification: [{
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "09:00",
+          closes: "18:30",
+        }],
+        sameAs: ["https://www.instagram.com/lojaartesemaroma/"],
       },
       {
         "@type": "WebSite",

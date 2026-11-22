@@ -7,7 +7,7 @@ import { EDITORIAL_GUIDES } from "@/domain/guides";
 import { buildBreadcrumbJsonLd } from "@/domain/jsonld";
 import { BookOpen, ArrowRight, CheckCircle2 } from "lucide-react";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.com.br";
+const SITE_URL = "https://artesemaroma.konnexy.com.br";
 
 export const metadata: Metadata = {
   title: "Guias de Criação Artesanal: Velas, Sabonetes e Aromatizadores",

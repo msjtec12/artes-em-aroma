@@ -378,9 +378,11 @@ describe("Artes em Aroma — Suíte Completa dos 20 Fluxos Críticos (Prompt Mas
       "admin@artesemaroma.com.br"
     );
     const sitemapEntries = await sitemap();
+    // Produtos não homologados não entram no sitemap nem em dados enriquecidos.
     expect(
       sitemapEntries.some((entry) => entry.url.includes("/produtos/essencia-lavanda-100ml"))
-    ).toBe(true);
+    ).toBe(false);
+    expect(sitemapEntries.some((entry) => entry.url.endsWith("/contato"))).toBe(true);
     // O produto duplicado nasce desativado (isActive=false), logo não pode constar no sitemap
     expect(
       sitemapEntries.some((entry) => entry.url.includes(dup.slug))

@@ -8,6 +8,11 @@ import {
   CommunicationStatus,
 } from "@/domain/orders";
 
+function escapeCsvFormula(value: string): string {
+  // Protect spreadsheet users from formula evaluation of customer-controlled text.
+  return /^\s*[=+@-]/.test(value) ? "'" + value : value;
+}
+
 export async function GET(request: NextRequest) {
   try {
     await requireAdminSession();
@@ -38,14 +43,14 @@ export async function GET(request: NextRequest) {
         return [
           o.orderCode,
           new Date(o.createdAt).toISOString(),
-          `"${o.customerName.replace(/"/g, '""')}"`,
+          `"${escapeCsvFormula(o.customerName).replace(/"/g, '""')}"`,
           `"${o.customerPhone}"`,
           o.fulfillmentMode,
           o.commercialStatus,
           o.communicationStatus,
           o.totalItemsCount,
           (o.subtotalCents / 100).toFixed(2),
-          `"${itemsSummary.replace(/"/g, '""')}"`,
+          `"${escapeCsvFormula(itemsSummary).replace(/"/g, '""')}"`,
         ].join(",");
       });
 

@@ -153,8 +153,8 @@ export async function seedInitialData() {
     addressZip: "08675-060",
     googleMapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Rua+Rui+Barbosa+310+Vila+Costa+Suzano+SP+08675-060",
-    instagramUrl: "https://www.instagram.com/lojartesemaroma/",
-    openingHours: "Segunda a Sexta: 09h às 18h | Sábado: 09h às 13h (Confirmar antes da visita)",
+    instagramUrl: "https://www.instagram.com/lojaartesemaroma/",
+    openingHours: "Segunda a sexta: 9h às 18h30 | Sábado: consulte o horário de funcionamento | Domingo: fechado",
     pickupEnabled: true,
     deliveryEnabled: true,
     deliveryNotice:
@@ -171,7 +171,7 @@ export async function seedInitialData() {
   await db.insert(schema.siteContent).values([
     {
       sectionKey: "hero",
-      title: "Transforme ideias em aromas.",
+      title: "Essências e materiais para velas e sabonetes artesanais em Suzano",
       subtitle: "Essências, bases, ceras e matérias-primas para dar vida às suas criações.",
       body: "Um espaço em Suzano pensado para artesãos, empreendedores de perfumaria artesanal, fabricantes de velas, sabonetes e apaixonados pelo universo olfativo.",
       ctaPrimaryText: "Explorar produtos",
@@ -185,7 +185,7 @@ export async function seedInitialData() {
       sectionKey: "about",
       title: "Um espaço para transformar criatividade em produtos aromáticos",
       subtitle: "Variedade, inspiração e atendimento próximo em Suzano, São Paulo.",
-      body: "A Artes em Aroma nasceu para apoiar quem cria com as próprias mãos. Mais do que uma loja de essências, reunimos matérias-primas selecionadas, bases glicerinadas, ceras vegetais, frascos, pavios e acessórios para fabricação artesanal de velas aromáticas, sabonetes, difusores e perfumaria fina.",
+      body: "A Artes em Aroma surgiu da experiência da proprietária Cilene Simões com o artesanato e foi inaugurada em outubro de 2026 para facilitar o acesso de artesãos da região a matérias-primas. Mais do que uma loja de essências, reunimos matérias-primas selecionadas, bases glicerinadas, ceras vegetais, frascos, pavios e acessórios para fabricação artesanal de velas aromáticas, sabonetes, difusores e perfumaria fina.",
       ctaPrimaryText: "Visitar nossa loja em Suzano",
       ctaPrimaryHref: "/contato",
       ctaSecondaryText: "Tirar dúvidas",
@@ -723,7 +723,7 @@ export async function seedInitialData() {
   ]);
 
   // 7. SEO Metadata para rotas estáticas
-  const canonicalSiteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://artes-em-aroma-jet.vercel.app").replace(/\/$/, "");
+  const canonicalSiteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.konnexy.com.br").replace(/\/$/, "");
   await db.insert(schema.seoMetadata).values([
     {
       routePath: "/",

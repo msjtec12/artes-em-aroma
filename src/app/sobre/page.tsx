@@ -8,7 +8,7 @@ import { siteContent, storeSettings } from "@/db/schema";
 import { buildBreadcrumbJsonLd } from "@/domain/jsonld";
 import { Sparkles, HeartHandshake, Palette, MapPin } from "lucide-react";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.com.br";
+const SITE_URL = "https://artesemaroma.konnexy.com.br";
 
 export const dynamic = "force-dynamic";
 
@@ -68,7 +68,7 @@ export default async function AboutPage() {
                   "Mais do que uma loja de essências: variedade, inspiração e atendimento próximo em Suzano, São Paulo."}
               </p>
               <p className="text-sm leading-relaxed text-marrom/85 sm:text-base">
-                {aboutContent?.body}
+                A Loja Artes em Aroma foi inaugurada em outubro de 2026. Ela surgiu da experiência de Cilene Simões com o artesanato e do desejo de facilitar o acesso a matérias-primas para artesãos da região.
               </p>
               <p className="text-sm leading-relaxed text-marrom/80">
                 Atendemos artesãos, fabricantes de velas aromáticas, saboaria artesanal, empreendedores de perfumaria artesanal, pequenos negócios de aromatização e pessoas que estão dando os primeiros passos na criação manual em Suzano e região.
