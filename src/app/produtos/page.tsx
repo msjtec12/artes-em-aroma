@@ -11,7 +11,7 @@ import { asc, eq } from "drizzle-orm";
 import { buildBreadcrumbJsonLd } from "@/domain/jsonld";
 import { Search, SlidersHorizontal, Sparkles } from "lucide-react";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.com.br";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.konnexy.com.br";
 
 export async function generateMetadata({
   searchParams,
