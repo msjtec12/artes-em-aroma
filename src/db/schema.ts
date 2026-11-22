@@ -298,10 +298,10 @@ export const storeSettings = pgTable("store_settings", {
     .default("https://www.google.com/maps/search/?api=1&query=Rua+Rui+Barbosa+310+Vila+Costa+Suzano+SP+08675-060"),
   instagramUrl: text("instagram_url")
     .notNull()
-    .default("https://www.instagram.com/lojartesemaroma/"),
+    .default("https://www.instagram.com/lojaartesemaroma/"),
   openingHours: text("opening_hours")
     .notNull()
-    .default("Segunda a Sexta: 09h às 18h | Sábado: 09h às 13h (Sujeito a confirmação)"),
+    .default("Segunda a sexta: 9h às 18h30 | Sábado: consulte o horário de funcionamento | Domingo: fechado"),
   pickupEnabled: boolean("pickup_enabled").default(true).notNull(),
   deliveryEnabled: boolean("delivery_enabled").default(true).notNull(),
   deliveryNotice: text("delivery_notice")
