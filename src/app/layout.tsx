@@ -25,16 +25,16 @@ const caveat = Caveat({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.com.br";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.konnexy.com.br";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Artes em Aroma | Essências, Ceras e Saboaria Artesanal em Suzano - SP",
+    default: "Essências e materiais para velas em Suzano | Artes em Aroma",
     template: "%s | Artes em Aroma",
   },
   description:
-    "Transforme ideias em aromas. Matéria-prima para sabonetes e velas, essências, bases glicerinadas e ceras vegetais em Suzano, São Paulo.",
+    "Loja Artes em Aroma em Suzano: essências, ceras, bases e materiais para velas, sabonetes e aromatizadores. Conheça a loja e consulte a disponibilidade.",
   icons: {
     icon: [
       { url: "/favicon.jpg", type: "image/jpeg" },
