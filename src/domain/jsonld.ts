@@ -1,6 +1,6 @@
 import { ProductWithRelations } from "./products";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.konnexy.com.br";
+const SITE_URL = "https://artesemaroma.konnexy.com.br";
 
 export function buildOrganizationAndLocalBusinessJsonLd(settings: {
   storeName: string;
