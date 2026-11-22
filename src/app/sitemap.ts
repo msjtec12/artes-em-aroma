@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllCatalogProducts } from "@/domain/products";
 import { EDITORIAL_GUIDES } from "@/domain/guides";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.com.br";
+const SITE_URL = "https://artesemaroma.konnexy.com.br";
 
 export const dynamic = "force-dynamic";
 
