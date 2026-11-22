@@ -30,13 +30,13 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-3 pt-1">
               <a
-                href="https://www.instagram.com/lojartesemaroma/"
+                href="https://www.instagram.com/lojaartesemaroma/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-dourado/40 bg-brancoQuente px-3.5 py-1.5 text-xs font-medium text-marrom transition hover:border-oliva hover:text-oliva"
               >
                 <Instagram className="h-4 w-4 text-oliva" />
-                @lojartesemaroma
+                @lojaartesemaroma
               </a>
             </div>
           </div>
