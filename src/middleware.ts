@@ -5,7 +5,7 @@ import { verifyAdminToken, SESSION_COOKIE_NAME } from "@/lib/auth-token";
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (pathname === "/admin/login" || pathname.startsWith("/api/admin/auth")) {
+  if (pathname === "/admin/login" || pathname === "/admin/recuperar" || pathname.startsWith("/api/admin/auth") || pathname === "/api/admin/recovery") {
     return NextResponse.next();
   }
 

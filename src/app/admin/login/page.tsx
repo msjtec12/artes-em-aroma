@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Lock, AlertCircle, ShieldCheck } from "lucide-react";
+import { Lock, AlertCircle } from "lucide-react";
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("admin@artesemaroma.com.br");
@@ -108,19 +108,8 @@ export default function AdminLoginPage() {
           </button>
         </form>
 
-        <div className="mt-6 rounded-xl border border-dourado/25 bg-creme/60 p-3.5 text-[11px] text-marrom/75">
-          <p className="flex items-center gap-1.5 font-semibold text-marrom">
-            <ShieldCheck className="h-4 w-4 text-oliva" />
-            Ambiente Inicial Configurado:
-          </p>
-          <p className="mt-1">
-            E-mail padrão: <code className="font-mono">admin@artesemaroma.com.br</code>
-            <br />
-            Senha inicial: <code className="font-mono">ArtesAroma@2026</code>
-          </p>
-        </div>
-
-        <div className="mt-5 text-center">
+        <div className="mt-5 text-center space-y-3">
+          <Link href="/admin/recuperar" className="block text-xs font-medium text-oliva hover:underline">Recuperar ou configurar acesso administrativo</Link>
           <Link href="/" className="text-xs font-medium text-oliva hover:underline">
             ← Voltar para a vitrine pública
           </Link>
