@@ -19,7 +19,7 @@ import { ShieldAlert, Sparkles, CheckCircle, Layers } from "lucide-react";
 import { db, ensureDatabaseInitialized } from "@/db";
 import { storeSettings } from "@/db/schema";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.konnexy.com.br";
+const SITE_URL = "https://artesemaroma.konnexy.com.br";
 
 export async function generateMetadata({
   params,
