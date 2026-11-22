@@ -42,6 +42,7 @@ export function CartDrawer() {
     orderCode: string;
     whatsappUrl: string;
     whatsappMessage: string;
+    actionToken: string;
     subtotalCents: number;
   } | null>(null);
   const [idempotencyKey, setIdempotencyKey] = useState<string>(() =>
@@ -85,6 +86,7 @@ export function CartDrawer() {
         orderCode: data.orderCode,
         whatsappUrl: data.whatsappUrl,
         whatsappMessage: data.whatsappMessage,
+        actionToken: data.actionToken,
         subtotalCents: data.subtotalCents,
       });
 
@@ -102,12 +104,12 @@ export function CartDrawer() {
     }
   };
 
-  const handleOpenWhatsApp = async (orderCode: string, whatsappUrl: string) => {
+  const handleOpenWhatsApp = async (orderCode: string, whatsappUrl: string, actionToken: string) => {
     try {
       await fetch("/api/orders", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ orderCode }),
+        body: JSON.stringify({ orderCode, actionToken }),
       });
     } catch {
       // continua mesmo se falhar telemetria
@@ -177,7 +179,7 @@ export function CartDrawer() {
               <button
                 type="button"
                 onClick={() =>
-                  handleOpenWhatsApp(createdOrder.orderCode, createdOrder.whatsappUrl)
+                  handleOpenWhatsApp(createdOrder.orderCode, createdOrder.whatsappUrl, createdOrder.actionToken)
                 }
                 className="flex w-full items-center justify-center gap-2 rounded-xl bg-oliva px-5 py-3.5 text-sm font-semibold text-brancoQuente shadow-md transition hover:bg-marrom"
               >
