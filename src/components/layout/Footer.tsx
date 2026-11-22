@@ -124,12 +124,12 @@ export function Footer() {
             </p>
             <p className="flex items-center gap-2.5">
               <Phone className="h-4 w-4 shrink-0 text-oliva" />
-              <span>(11) 91077-1820</span>
+              <a href="tel:+5511910771820" className="underline hover:text-oliva">(11) 91077-1820</a>
             </p>
             <p className="flex items-start gap-2.5">
               <Clock className="mt-0.5 h-4 w-4 shrink-0 text-oliva" />
               <span className="text-xs">
-                Seg a Sex: 09h às 18h | Sáb: 09h às 13h (Confirmar disponibilidade no atendimento)
+                Segunda a sexta: 9h às 18h30 | Sábado: consulte o horário | Domingo: fechado
               </span>
             </p>
           </div>
