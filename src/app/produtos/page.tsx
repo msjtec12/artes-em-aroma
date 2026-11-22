@@ -13,6 +13,9 @@ import { Search, SlidersHorizontal, Sparkles } from "lucide-react";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.konnexy.com.br";
 
+// Catálogo depende do Neon em tempo de execução; não deve ser pré-renderizado no build.
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   searchParams,
 }: {
