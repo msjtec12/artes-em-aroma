@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createServerValidatedOrder, markWhatsAppLinkTriggered } from "@/domain/orders";
+import { createServerValidatedOrder, markWhatsAppLinkTriggered, verifyOrderActionToken } from "@/domain/orders";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { ZodError } from "zod";
 import { db, ensureDatabaseInitialized } from "@/db";
@@ -51,9 +51,9 @@ export async function POST(request: NextRequest) {
 export async function PATCH(request: NextRequest) {
   try {
     const body = await request.json();
-    if (!body?.orderCode) {
+    if (!body?.orderCode || !body?.actionToken || !(await verifyOrderActionToken(String(body.orderCode), String(body.actionToken)))) {
       return NextResponse.json(
-        { error: "Código do pedido obrigatório." },
+        { error: "Autorização inválida para registrar acionamento." },
         { status: 400 }
       );
     }
