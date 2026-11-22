@@ -20,7 +20,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.com.br";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.konnexy.com.br";
 
 export const dynamic = "force-dynamic";
 
@@ -140,8 +140,7 @@ export default async function ContactPage() {
                     <span>
                       <strong>Horário de funcionamento:</strong>
                       <br />
-                      {settings?.openingHours ||
-                        "Segunda a Sexta: 09h às 18h | Sábado: 09h às 13h"}
+                      {"Segunda a sexta: 9h às 18h30 | Sábado: consulte o horário de funcionamento | Domingo: fechado"}
                     </span>
                   </p>
                   <p className="flex items-center gap-2">
@@ -149,13 +148,13 @@ export default async function ContactPage() {
                     <a
                       href={
                         settings?.instagramUrl ||
-                        "https://www.instagram.com/lojartesemaroma/"
+                        "https://www.instagram.com/lojaartesemaroma/"
                       }
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-semibold text-oliva underline"
                     >
-                      instagram.com/lojartesemaroma
+                      instagram.com/lojaartesemaroma
                     </a>
                   </p>
                 </div>
