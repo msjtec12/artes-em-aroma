@@ -8,7 +8,7 @@ import { siteContent, storeSettings } from "@/db/schema";
 import { buildBreadcrumbJsonLd } from "@/domain/jsonld";
 import { Sparkles, HeartHandshake, Palette, MapPin } from "lucide-react";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://artesemaroma.konnexy.com.br";
+const SITE_URL = "https://artesemaroma.konnexy.com.br";
 
 export const dynamic = "force-dynamic";
 
